@@ -1,0 +1,44 @@
+SUPERNOVA — Google Sites handoff
+================================
+
+Client requirements (confirmed in chat)
+- PSD final: yes
+- No separate fonts/logos
+- All orange CTAs → WhatsApp https://wa.me/5554999689717
+- Email: sandra.mvaz@supernova-inova.com
+- Domain: supernova-inova.com
+- Increase product-card text size if hard to read
+- Do NOT publish as one big flat image (causes blur + bad mobile)
+
+What was built locally
+- index.html + styles.css + script.js = full responsive landing (PSD-faithful)
+- assets/ = logo, hero, sobre image, icons, ODS, section JPGs
+- Preview: http://127.0.0.1:8765/
+
+OPTION A — Best quality (recommended)
+1. Host the HTML folder (Netlify Drop / GitHub Pages / any static host)
+2. In Google Sites: Insert → Embed → URL of hosted page
+3. Stretch embed full width / full page
+4. Publish on supernova-inova.com
+
+OPTION B — Native Google Sites (no external host)
+1. Open editor:
+   https://sites.google.com/d/1LvN1Keh2N3NEGoN7Y0l3QZ72zK9vs3he/p/1gjVAtLgDEYg2BujVdgVFA20RFrDi2bgf/edit
+2. Delete the old blurry full-page image layout
+3. Rebuild section by section:
+   Header: logo (assets/logo.png) + text links + Button "Seja um Parceiro" → WhatsApp
+   Hero: upload assets/hero_visual.png + text headline + Button "Estou interessado!" → WhatsApp
+   Sobre: assets/sobre_visual.png + paste Sobre text from PSD
+   Produtos: 4 text boxes (blue bg) with LARGE font — paste titles/descriptions; icons icon1–4.png
+   Como Funciona: 4 columns with steps 01–04 + Button → WhatsApp
+   Impacto: 5 cards + assets/ods.png
+   Equipe: text block
+   CTA final: testimonial + Button → WhatsApp
+   Footer: email + phone + social icons
+4. Preview phone/tablet in Sites
+5. Publish
+
+WhatsApp link for every orange button:
+https://wa.me/5554999689717
+
+Copy for client when preview is ready is in the chat reply.

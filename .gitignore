@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+LP_SuperNova2025.psd
+design.psd
+assets/full_preview.png
+assets/full_preview_960.png
+assets/texts.json
+*.pyc
+__pycache__/
