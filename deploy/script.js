@@ -1,18 +1,44 @@
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#menu");
+const HEADER_OFFSET = 84;
+
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  return true;
+}
+
+function handleNavClick(event) {
+  const link = event.currentTarget;
+  const href = link.getAttribute("href") || "";
+  if (!href.startsWith("#")) return;
+  const id = href.slice(1);
+  if (!id) return;
+  event.preventDefault();
+  scrollToId(id);
+  history.replaceState(null, "", href);
+  if (nav && toggle) {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", handleNavClick);
+});
 
 if (toggle && nav) {
   toggle.addEventListener("click", () => {
     const open = nav.classList.toggle("open");
     toggle.setAttribute("aria-expanded", String(open));
   });
+}
 
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
+if (location.hash.length > 1) {
+  const id = decodeURIComponent(location.hash.slice(1));
+  requestAnimationFrame(() => scrollToId(id));
 }
 
 const revealEls = document.querySelectorAll(
