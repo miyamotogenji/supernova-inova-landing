@@ -26,15 +26,28 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
   font-family: var(--font);
   color: var(--ink);
   background: var(--white);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Keeps scrolling inside the page so menu anchors work in Google Sites embeds */
+.page-shell {
+  height: 100vh;
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 img {

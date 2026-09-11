@@ -1,12 +1,24 @@
 const toggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector("#menu");
+const shell = document.querySelector("#page-shell");
 const HEADER_OFFSET = 84;
 
 function scrollToId(id) {
   const el = document.getElementById(id);
   if (!el) return false;
-  const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
-  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+
+  const scroller = shell || document.scrollingElement || document.documentElement;
+  if (scroller === shell) {
+    const top =
+      el.getBoundingClientRect().top -
+      scroller.getBoundingClientRect().top +
+      scroller.scrollTop -
+      HEADER_OFFSET;
+    scroller.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  } else {
+    const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }
   return true;
 }
 
@@ -56,7 +68,7 @@ const io = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.15 }
+  { root: shell || null, threshold: 0.15 }
 );
 
 revealEls.forEach((el) => io.observe(el));
